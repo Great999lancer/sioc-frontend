@@ -2,7 +2,7 @@
 
 import {authEndpoint} from '../../config.json';
 
-export default class SignIn {
+export default class SignInService {
     static async login(email, password) {
         const response = await fetch(`${authEndpoint}auth/login`, {
             method: 'post',
