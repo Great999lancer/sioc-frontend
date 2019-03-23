@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 import {Badge, Nav, NavItem, NavLink as RsNavLink} from 'reactstrap';
 import classNames from 'classnames';
 import nav from './_nav';
-import SignIn from '../../SignIn'
+import SignIn from '../../SignIn/index.tsx'
 import SidebarFooter from './SidebarFooter';
 import SidebarForm from './SidebarForm';
 import SidebarHeader from './SidebarHeader';

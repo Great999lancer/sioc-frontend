@@ -15,7 +15,7 @@ module.exports = {
     },
     resolve: {
         modules: ['node_modules'],
-        extensions: ['.js', '.jsx', '.scss'],
+        extensions: ['.js', '.jsx', 'tsx', '.scss'],
         alias: {
             'react-native': 'react-native-web'
         }
@@ -34,7 +34,17 @@ module.exports = {
             }, {
                 loader: 'babel-loader', options: {cacheDirectory: '.babel-cache'}
             }]
-        }, {
+        }, 
+        {
+            test: /\.tsx?$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: 'react-hot-loader/webpack'
+            }, {
+                loader: 'babel-loader', options: {cacheDirectory: '.babel-cache'}
+            }]
+        },
+        {
             test: /\.js$/,
             include: [
                 /node_modules\/react-native-/,
@@ -61,7 +71,7 @@ module.exports = {
         }, {
             exclude: [
                 /\.html$/,
-                /\.(js|jsx)$/,
+                /\.(js|jsx|tsx)$/,
                 /\.json$/,
                 /\.s?css$/,
                 /\.(jpg|png)/
@@ -78,7 +88,7 @@ module.exports = {
         new webpack.DefinePlugin({
             VERSION: JSON.stringify(require('./package.json').version),
             NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-            ENDPOINT: JSON.stringify(require('./config.json').endpoint)
+            ENDPOINT: JSON.stringify(require('./config.ts/index.js').endpoint)
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor'),
         new webpack.HotModuleReplacementPlugin(),

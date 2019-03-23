@@ -6,7 +6,9 @@ import {Grid, Row, Col, Button, Form, FormControl, FormGroup, ControlLabel} from
 import {Label, Input} from 'reactstrap';
 import {delay} from 'lodash';
 import FontAwesome from 'react-fontawesome';
+// import SignIn from '../../services/signIn';
 import SignInService from '../../services/signIn';
+// import login from '../../services/signIn1';
 import StorageService from '../../services/storage';
 
 import {requestSaveUser} from '../../actions';

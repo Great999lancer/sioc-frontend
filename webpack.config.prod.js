@@ -12,7 +12,7 @@ module.exports = {
     },
     resolve: {
         modules: ['node_modules'],
-        extensions: ['.js', '.jsx', '.scss'],
+        extensions: ['.js', '.jsx', '.tsx', '.scss'],
         alias: {
             'react-native': 'react-native-web'
         }
@@ -25,6 +25,10 @@ module.exports = {
     module: {
         rules: [{
             test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        }, {
+            test: /\.tsx?$/,
             exclude: /node_modules/,
             loader: 'babel-loader'
         }, {
@@ -51,7 +55,7 @@ module.exports = {
         }, {
             exclude: [
                 /\.html$/,
-                /\.(js|jsx)$/,
+                /\.(js|jsx|tsx)$/,
                 /\.json$/,
                 /\.s?css$/,
                 /\.(jpg|png)/
